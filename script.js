@@ -4,16 +4,13 @@ const authorText = document.getElementById('author');
 const twitterBtn = document.getElementById('twitter');
 const newQuoteBtn = document.getElementById('new-quote');
 const loader = document.getElementById('loader');
-
 let apiQuotes = [];
 
-//Show Loading
 const showLoadingSpinner = () => {
   loader.hidden = false;
   quoteContainer.hidden = true;
 };
 
-// Hide Loading
 const removeLoadingSpinner = () => {
   if (!loader.hidden) {
     quoteContainer.hidden = false;
