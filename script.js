@@ -8,20 +8,22 @@ const loader = document.getElementById('loader');
 let apiQuotes = [];
 
 //Show Loading
-const laoding = () => {
+const showLoadingSpinner = () => {
   loader.hidden = false;
   quoteContainer.hidden = true;
 };
 
 // Hide Loading
-const complete = () => {
-  quoteContainer.hidden = false;
-  loader.hidden = true;
+const removeLoadingSpinner = () => {
+  if (!loader.hidden) {
+    quoteContainer.hidden = false;
+    loader.hidden = true;
+  }
 };
 
 //Show New Quote
 const newQuote = () => {
-  laoding();
+  showLoadingSpinner();
   //pick a random quote from apiQuotes array
   const quote = apiQuotes[Math.floor(Math.random() * apiQuotes.length)];
   //Check if Author field is blank and replace ot with 'Unknown'
@@ -38,13 +40,13 @@ const newQuote = () => {
   }
   //set Quote, Hide Loader
   quoteText.textContent = quote.text;
-  complete();
+  removeLoadingSpinner();
 };
 
 // Get Quotes From API
 const getQuotes = async () => {
   // also can use this api to fetch quotes https://type.fit/api/quotes
-  laoding();
+  showLoadingSpinner();
   const apiUrl = 'https://jacintodesign.github.io/quotes-api/data/quotes.json';
   try {
     const response = await fetch(apiUrl);
@@ -52,6 +54,7 @@ const getQuotes = async () => {
     newQuote();
   } catch (error) {
     //Catch Error Here
+    getQuotes();
     console.log('Sorry, no quote was generated:', error);
   }
 };
