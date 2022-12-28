@@ -1,5 +1,9 @@
-@import url('https://fonts.googleapis.com/css2?family=Ultra&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;900&display=swap');
+
+@font-face {
+  font-family: myFirstFont;
+  src: url(BDCartoon.ttf);
+}
 
 html {
   box-sizing: border-box;
@@ -24,9 +28,19 @@ main {
 }
 
 h1 {
-  font-family: 'Ultra', serif;
-  font-size: 4.5rem;
-  margin: 2rem 0 4rem 0;
+  font-family: myFirstFont;
+  font-size: 4rem;
+  margin: 4rem 0 3rem 0;
+  background: #2980b9;
+  background: -webkit-linear-gradient(to right, #6dd5fa, #ffffff);
+  background: linear-gradient(to right, #6dd5fa, #ffffff);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+h3 {
+  font-family: myFirstFont;
+  font-size: 1.5rem;
   background: #2980b9;
   background: -webkit-linear-gradient(to right, #6dd5fa, #ffffff);
   background: linear-gradient(to right, #6dd5fa, #ffffff);
