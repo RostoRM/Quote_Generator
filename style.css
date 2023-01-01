@@ -5,7 +5,9 @@
   src: url(BDCartoon.ttf);
 }
 
-html {
+*,
+*::before,
+*::after {
   box-sizing: border-box;
 }
 
